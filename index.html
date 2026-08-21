@@ -56,7 +56,23 @@
         /* Header / Navbar - Complex Desktop + Mobile */
         header { background-color: var(--bg-cream); box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: fixed; width: 100%; top: 0; z-index: 1000; transition: var(--transition); }
         .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; }
-        .logo { font-size: 1.3rem; font-weight: 700; color: var(--text-header); text-transform: uppercase; font-family: 'Playfair Display', serif; }
+        
+        /* Brand Logo System */
+        .logo { 
+            display: flex; 
+            align-items: center; 
+            gap: 12px; 
+            font-size: 1.3rem; 
+            font-weight: 700; 
+            color: var(--text-header); 
+            text-transform: uppercase; 
+            font-family: 'Playfair Display', serif; 
+        }
+        .logo-img { 
+            height: 42px; 
+            width: auto; 
+            object-fit: contain; 
+        }
         
         /* Desktop specific header layout */
         .desktop-nav { display: flex; gap: 20px; align-items: center; }
@@ -82,7 +98,7 @@
         .mobile-nav-close { position: absolute; top: 20px; right: 20px; font-size: 2rem; color: var(--text-header); }
 
         /* Hero Section */
-        .hero { height: 100vh; background: linear-gradient(rgba(26, 67, 59, 0.7), rgba(26, 67, 59, 0.9)), url('foto\ gereja.jpeg') center/cover; display: flex; align-items: center; text-align: center; color: var(--text-on-dark); }
+        .hero { height: 100vh; background: linear-gradient(rgba(26, 67, 59, 0.7), rgba(26, 67, 59, 0.9)), url('foto gereja.jpeg') center/cover; display: flex; align-items: center; text-align: center; color: var(--text-on-dark); }
         .hero h1 { color: var(--text-on-dark); font-size: 3.5rem; margin-bottom: 20px; }
         .hero h2 { color: var(--text-on-dark); font-size: 1.3rem; font-family: 'Source Sans Pro', sans-serif; font-weight: 300; margin-bottom: 25px; letter-spacing: 2px; }
         .hero p { max-width: 700px; margin: 0 auto 40px; font-size: 1.1rem; color: #eee; }
@@ -102,7 +118,7 @@
         /* "Selamat Datang" Section - Custom Layout */
         .section-welcome { background-color: var(--text-on-dark); }
         .welcome-content { display: flex; align-items: center; gap: 40px; text-align: left; max-width: 1100px; margin: 0 auto; }
-        .welcome-img { width: 100%; max-width: 400px; flex-shrink: 0; }
+        .welcome-img { width: 100%; max-width: 400px; flex-shrink: 0; border-radius: 6px; }
         .welcome-text { flex-grow: 1; }
         .welcome-text h2 { font-size: 2rem; color: var(--text-header); margin-bottom: 20px; }
         .welcome-text p { margin-bottom: 20px; font-size: 1.1rem; color: #666; }
@@ -143,6 +159,8 @@
             .hamburger { display: block; }
             .header-action-group { display: none; }
             .nav-container { justify-content: space-between; }
+            .logo { font-size: 1.1rem; }
+            .logo-img { height: 35px; }
             .mobile-nav { width: 100%; right: -100%; left: auto; transition: right 0.4s; padding: 80px 20px;}
             .mobile-menu-toggle:checked + .mobile-menu-overlay .mobile-nav { right: 0; left: auto; transition: right 0.4s; }
             .hero h1 { font-size: 2.2rem; }
@@ -164,12 +182,15 @@
 </head>
 <body>
 
-    <!-- Complex Header with Full Desktop Nav and Desktop Hamburger + Mobile Menu System -->
+    <!-- Header Section -->
     <header id="header">
         <div class="nav-container container">
-            <div class="logo">GMIM Eben Heazer Wulauan</div>
+            <a href="#beranda" class="logo">
+                <img src="logo-gmim.png" alt="Logo GMIM" class="logo-img">
+                <span>GMIM Eben Heazer Wulauan</span>
+            </a>
             
-            <!-- Desktop Nav Menu (Visible only on desktop) -->
+            <!-- Desktop Nav Menu -->
             <nav class="desktop-nav">
                 <a href="#beranda">Beranda</a>
                 <a href="#tentang">Tentang Kami</a>
@@ -178,18 +199,17 @@
                 <a href="#galeri">Galeri</a>
                 <a href="#kontak">Kontak</a>
                 
-                <!-- Unique Desktop Hamburger + Button Group -->
                 <div class="header-action-group">
                     <button class="hamburger-desktop">☰</button>
                     <a href="#jadwal" class="btn btn-accent btn-small" style="padding: 8px 15px;">Jadwal Ibadah</a>
                 </div>
             </nav>
             
-            <!-- Mobile specific Hamburger Menu Button -->
+            <!-- Mobile Hamburger Button -->
             <label for="mobile-menu-toggle" class="hamburger">☰</label>
         </div>
         
-        <!-- Mobile Menu Full Overlay (Hidden by default) -->
+        <!-- Mobile Menu Full Overlay -->
         <input type="checkbox" id="mobile-menu-toggle" class="mobile-menu-toggle">
         <div class="mobile-menu-overlay">
             <nav class="mobile-nav container">
@@ -220,7 +240,7 @@
         </div>
     </section>
 
-    <!-- "Selamat Datang" Section - Column Layout -->
+    <!-- "Selamat Datang" Section -->
     <section id="tentang" class="section-padding section-welcome">
         <div class="container">
             <div class="text-center fade-in">
@@ -228,15 +248,18 @@
                 <div class="divider"></div>
             </div>
             <div class="welcome-content fade-in">
-                <img src='hut gereja.jpeg' alt="Pendeta GMIM Eben Heazer Wulauan" class="welcome-img">
+                <img src="foto gereja.jpeg" alt="Pendeta GMIM Eben Heazer Wulauan" class="welcome-img">
                 <div class="welcome-text">
-                   <p>Salam sejahtera dalam kasih Tuhan kita Yesus Kristus! Kami menyambut dengan sukacita kehadiran Anda di situs resmi GMIM Eben Heazer Wulauan. Gereja ini hadir sebagai rumah spiritual bagi setiap jemaat untuk bertumbuh dalam iman, bersekutu, dan saling melayani.</p>
-<p>Melalui berbagai program pelayanan, persekutuan kategorial, dan kegiatan ibadah, kami berkomitmen untuk terus menyebarkan warta sukacita serta menjadi terang dan garam bagi masyarakat sekitar.</p>
-<p>Mari bergabung bersama kami dalam persekutuan dan pelayanan. Kiranya kasih dan damai sejahtera dari Tuhan senantiasa menyertai kita sekalian.</p>
+                    <p>Salam sejahtera dalam kasih Tuhan kita Yesus Kristus! Kami menyambut dengan sukacita kehadiran Anda di situs resmi GMIM Eben Heazer Wulauan. Gereja ini hadir sebagai rumah spiritual bagi setiap jemaat untuk bertumbuh dalam iman, bersekutu, dan saling melayani.</p>
+                    <p>Melalui berbagai program pelayanan, persekutuan kategorial, dan kegiatan ibadah, kami berkomitmen untuk terus menyebarkan warta sukacita serta menjadi terang dan garam bagi masyarakat sekitar.</p>
+                    <p>Mari bergabung bersama kami dalam persekutuan dan pelayanan. Kiranya kasih dan damai sejahtera dari Tuhan senantiasa menyertai kita sekalian.</p>
+                    <a href="#tentang-kami" class="btn btn-green-outline" style="margin-top: 15px;">Tentang Gereja</a>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- "Tentang Kami" Section - Card Grid -->
+    <!-- "Tentang Kami" Section -->
     <section id="tentang-kami" class="section-padding">
         <div class="container fade-in">
             <div class="text-center">
@@ -261,7 +284,7 @@
                     <p>Aenean sollicitudin lorem quis bibendum auctor.</p>
                 </div>
                 <div class="card">
-                    <span style="color: var(--accent); font-size: 2rem;">🛡️1</span>
+                    <span style="color: var(--accent); font-size: 2rem;">🛡️</span>
                     <h3>Values</h3>
                     <p>Duis sed odio sit amet nibh vulputate cursus.</p>
                 </div>
@@ -269,7 +292,7 @@
         </div>
     </section>
 
-    <!-- "Jadwal Ibadah" Section - Card Grid with Specific Titles and Times -->
+    <!-- "Jadwal Ibadah" Section -->
     <section id="jadwal" class="section-padding">
         <div class="container fade-in">
             <div class="text-center">
@@ -297,7 +320,7 @@
         </div>
     </section>
 
-    <!-- "Tata Ibadah" Section - Card Grid with Icon Placeholder for PDF -->
+    <!-- "Tata Ibadah" Section -->
     <section id="tata-ibadah" class="section-padding">
         <div class="container fade-in">
             <div class="text-center">
@@ -314,7 +337,7 @@
         </div>
     </section>
 
-    <!-- "Bidang Pelayanan" Section - Card Grid with Icons -->
+    <!-- "Bidang Pelayanan" Section -->
     <section id="pelayanan" class="section-padding">
         <div class="container fade-in">
             <div class="text-center">
@@ -347,7 +370,7 @@
         </div>
     </section>
 
-    <!-- "Berita & Pengumuman" Section - Column Grid with specific dates and dummy images -->
+    <!-- "Berita & Pengumuman" Section -->
     <section id="berita" class="section-padding">
         <div class="container fade-in">
             <div class="text-center">
@@ -357,7 +380,7 @@
             </div>
             <div class="grid grid-3 Berita-Grid">
                 <div class="card text-left" style="padding: 0; overflow: hidden;">
-                    <img src="https://via.placeholder.com/400x200.png?text=Berita 1" alt="Article 1" style="width: 100%; height: 200px; object-fit: cover;">
+                    <img src="https://via.placeholder.com/400x200.png?text=Berita+1" alt="Article 1" style="width: 100%; height: 200px; object-fit: cover;">
                     <div style="padding: 20px;">
                         <p style="color: var(--accent); font-weight: 600;">22-25.07.2023 | BIPRA</p>
                         <h3 style="margin-top: 5px;">Ibadah BIPRA & Tim GMIM Eben Heazer Jemaat</h3>
@@ -365,7 +388,7 @@
                     </div>
                 </div>
                 <div class="card text-left" style="padding: 0; overflow: hidden;">
-                    <img src="https://via.placeholder.com/400x200.png?text=Berita 2" alt="Article 2" style="width: 100%; height: 200px; object-fit: cover;">
+                    <img src="https://via.placeholder.com/400x200.png?text=Berita+2" alt="Article 2" style="width: 100%; height: 200px; object-fit: cover;">
                     <div style="padding: 20px;">
                         <p style="color: var(--accent); font-weight: 600;">22-25.07.2023 | Pemuda</p>
                         <h3 style="margin-top: 5px;">Ibadah BIPRA Pemuda Jemaat Wulauan</h3>
@@ -373,7 +396,7 @@
                     </div>
                 </div>
                 <div class="card text-left" style="padding: 0; overflow: hidden;">
-                    <img src="https://via.placeholder.com/400x200.png?text=Berita 3" alt="Article 3" style="width: 100%; height: 200px; object-fit: cover;">
+                    <img src="https://via.placeholder.com/400x200.png?text=Berita+3" alt="Article 3" style="width: 100%; height: 200px; object-fit: cover;">
                     <div style="padding: 20px;">
                         <p style="color: var(--accent); font-weight: 600;">22-25.07.2023 | BIPRA</p>
                         <h3 style="margin-top: 5px;">Ibadah BIPRA & Tim GMIM Eben Heazer Jemaat</h3>
@@ -393,12 +416,12 @@
                 <p class="section-subtitle">Momen kebersamaan dan pelayanan jemaat.</p>
             </div>
             <div class="gallery-grid">
-                <div class="gallery-item"><img src="https://via.placeholder.com/300x300.png?text=Foto 1" alt="Gallery Photo 1" loading="lazy"></div>
-                <div class="gallery-item"><img src="https://via.placeholder.com/300x300.png?text=Foto 2" alt="Gallery Photo 2" loading="lazy"></div>
-                <div class="gallery-item"><img src="https://via.placeholder.com/300x300.png?text=Foto 3" alt="Gallery Photo 3" loading="lazy"></div>
-                <div class="gallery-item"><img src="https://via.placeholder.com/300x300.png?text=Foto 4" alt="Gallery Photo 4" loading="lazy"></div>
-                <div class="gallery-item"><img src="https://via.placeholder.com/300x300.png?text=Foto 5" alt="Gallery Photo 5" loading="lazy"></div>
-                <div class="gallery-item"><img src="https://via.placeholder.com/300x300.png?text=Foto 6" alt="Gallery Photo 6" loading="lazy"></div>
+                <div class="gallery-item"><img src="https://via.placeholder.com/300x300.png?text=Foto+1" alt="Gallery Photo 1" loading="lazy"></div>
+                <div class="gallery-item"><img src="https://via.placeholder.com/300x300.png?text=Foto+2" alt="Gallery Photo 2" loading="lazy"></div>
+                <div class="gallery-item"><img src="https://via.placeholder.com/300x300.png?text=Foto+3" alt="Gallery Photo 3" loading="lazy"></div>
+                <div class="gallery-item"><img src="https://via.placeholder.com/300x300.png?text=Foto+4" alt="Gallery Photo 4" loading="lazy"></div>
+                <div class="gallery-item"><img src="https://via.placeholder.com/300x300.png?text=Foto+5" alt="Gallery Photo 5" loading="lazy"></div>
+                <div class="gallery-item"><img src="https://via.placeholder.com/300x300.png?text=Foto+6" alt="Gallery Photo 6" loading="lazy"></div>
             </div>
         </div>
     </section>
@@ -413,7 +436,6 @@
             </div>
             <div class="contact-content fade-in">
                 <div class="contact-map">
-                    <!-- Google Maps Iframe Placeholder -->
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.1!2d124.9!3d1.3!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x32810e7552555555%3A0x6166666666666666!2sGMIM%20Eben%20Heazer%20Jemaat!5e0!3m2!1sid!2sid!4v1600000000000" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                 </div>
                 <div class="contact-info">
@@ -444,7 +466,7 @@
         </div>
     </section>
 
-    <!-- Footer Section with Menu Links and Tagline -->
+    <!-- Footer Section -->
     <footer>
         <div class="container fade-in">
             <div class="footer-grid">
@@ -473,7 +495,6 @@
 
     <!-- JavaScript for Animations and Header Stickiness -->
     <script>
-        // Check for intersection to trigger fade-in animations on scroll
         const faders = document.querySelectorAll('.fade-in');
         const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
 
@@ -487,7 +508,6 @@
 
         faders.forEach(fader => { appearOnScroll.observe(fader); });
 
-        // Close mobile menu when a link is clicked
         const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
         const mobileMenuLinks = document.querySelectorAll('.mobile-nav a');
 
